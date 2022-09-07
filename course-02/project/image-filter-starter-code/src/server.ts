@@ -28,9 +28,8 @@ import express, {Request, Response} from 'express'
   //   the filtered image file [!!TIP res.sendFile(filteredpath); might be useful]
 
   /**************************************************************************** */
-  app.get( "/", async ( req, res ) => {
-    res.send("try GET /filteredimage?image_url={{}}")
-    const image_url:string = req.query.image_url.toString();
+  app.get( "/filteredimage", async ( req: Request, res: Response ) => {
+   const image_url:string = req.query.image_url.toString();
     if(!image_url) {
       return res.status(400).send('Insert image url');
     }
